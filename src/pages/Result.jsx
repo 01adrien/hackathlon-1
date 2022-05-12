@@ -1,6 +1,7 @@
+import MapComponent from "../components/MapComponent"
+import { Selection } from '../components/Selection'
 import React, { useEffect, useRef, useState } from 'react'
 import { Lieu } from "../components/Lieu";
-import MapComponent from "../components/MapComponent";
 import "../styles/result.css";
 import axios from 'axios';
 import {
@@ -21,6 +22,7 @@ export const Result = () => {
       .then((result) => result.data)
       .then((data) => {
         setResult(data);
+        console.log(data)
       })
       .catch(() => {
         alert('No search results');
@@ -30,6 +32,7 @@ export const Result = () => {
   return (
     <div className='result'>
         <MapComponent markersRef={markersRef}/>
+        <Selection />
         {result.map((point) => <Lieu markersRef={markersRef} key={point.id} id={point.id} categorie={point.nom} voie={point.voie} code_postal={point.code_postal} commune={point.commune} />)}
     </div>
   )

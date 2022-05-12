@@ -17,7 +17,7 @@ export const Lieu = ({ categorie, voie, code_postal, commune, markersRef, id}) =
     <div className={style.lieu} key={voie} onClick={() => markersRef.current[id].fire('click') && scrollToTop()}>
       <img src={logo} alt="" className={style.lieuImage}/>
       <div className={style.lieuDescription}>
-        <h1>{categorie}</h1>
+        <h1 className={style.titre}>{categorie}</h1>
         <p className={style.lieuText}>{voie}</p>
         <p className={style.lieuText}>{code_postal}</p>
         <p className={style.lieuText}>{commune}</p>
