@@ -3,15 +3,22 @@ import { Link } from 'react-router-dom';
 import styles from '../styles/header.module.css';
 import '../styles/footer.css';
 import jetree from '../assets/jetree.png';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 export const Header = () => {
   return (
-    <div className="Navbar">
-      <nav>
-        <Link to="/" className={styles.logohome}>
-          <img src={jetree} className={styles.logotree} alt="my-logo" />
-        </Link>
-      </nav>
-    </div>
+    <nav>
+      <div className={styles.navbar}>
+        <div>
+          {' '}
+          <Link to="/" className={styles.logohome}>
+            <img src={jetree} className={styles.logotree} alt="my-logo" />
+          </Link>
+        </div>
+        <div>
+          <GiHamburgerMenu className={styles.logoburger} />
+        </div>
+      </div>
+    </nav>
   );
 };
