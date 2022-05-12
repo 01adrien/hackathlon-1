@@ -9,7 +9,7 @@ import styles from '../styles/map.css'
 import axios from 'axios';
 
 
-export default function MapComponent() {
+export const MapComponent = () => {
 const params = useParams();
 const lyonPosition = [45.764043 , 4.835659]
 
@@ -28,7 +28,7 @@ useEffect(() => {
     .catch(() => {
       alert('No search results');
     })
-}, []);
+}, [params]);
 
   return (
     <MapContainer
