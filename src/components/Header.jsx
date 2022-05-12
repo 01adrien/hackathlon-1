@@ -19,6 +19,21 @@ export const Header = () => {
           <GiHamburgerMenu className={styles.logoburger} />
         </div>
       </div>
+      <ul className="burgerMenu">
+        <li className="listMenu">
+          <Link to="/" className="routesMenu">
+            Accueil
+          </Link>
+        </li>
+        <li>
+          <Link to="/Map" className="routesMenu">
+            Carte interactive
+          </Link>
+        </li>
+        <Link to="/" className="routesMenu">
+          Ajouter une borne
+        </Link>
+      </ul>
     </nav>
   );
 };
