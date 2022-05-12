@@ -29,8 +29,16 @@ body {
     text-align: center;
     background-color: var(--color1);
     color: white;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background-image: url('../assets/fleche.png');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+  background-size: 1rem;
     border-radius: 5px;
-
+    width: 200px;
+    height: 30px;
+    font-size: 1.5rem;
 }
 
 .category-title {
