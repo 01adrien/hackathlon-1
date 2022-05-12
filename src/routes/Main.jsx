@@ -5,9 +5,11 @@ import { Result } from '../pages/Result';
 
 export const Main = () => {
   return (
+    <div className='main'>
     <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/result" element={<Result />} />
     </Routes>
+    </div>
   )
 }

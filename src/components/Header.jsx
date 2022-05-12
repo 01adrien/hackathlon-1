@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import '../styles/header.css';
+import '../styles/footer.css';
 
 export const Header = () => {
   return (
-    <div></div>
+    <div className='header'></div>
+    
   )
 }
