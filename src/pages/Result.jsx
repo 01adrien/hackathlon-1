@@ -1,7 +1,8 @@
 import React from 'react'
+import MapComponent from "../components/MapComponent"
 
 export const Result = () => {
   return (
-    <div>Result</div>
+    <MapComponent /> 
   )
 }

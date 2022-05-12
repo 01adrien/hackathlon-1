@@ -24,6 +24,10 @@ body {
   background-color: var(--color2);
 }
 
+.category-box-hide {
+  display: none;
+}
+
 .category-select {
   text-align: center;
   background-color: var(--color1);
@@ -53,13 +57,13 @@ body {
   margin: auto;
   margin-top: 150px;
   background-color: white;
-  background-image: url('../assets/croix.png');
-  background-repeat: no-repeat;
-  background-position: top right;
-  background-size: 1.5rem;
   text-align: center;
   border-radius: 5px;
   background-color: var(--color2);
+}
+
+.popup-hide {
+  display: none;
 }
 
 .popup-button {
