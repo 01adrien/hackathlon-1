@@ -5,7 +5,7 @@ import { Result } from '../pages/Result';
 
 export const Main = () => {
   return (
-    <div className='main'>
+    <div className="main">
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/result/:category" element={<Result />} />
