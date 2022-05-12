@@ -1,5 +1,11 @@
 .header {
-  height: 70px;
+  height: 60px;
+}
+
+.nav {
+  display: flex;
+  background-color: white;
+  text-decoration: none;
 }
 
 .navbar {
@@ -7,17 +13,86 @@
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  background-color: rgb(249, 251, 253);
+  width: 100%;
+}
+
+.navMenuMobile {
+  display: none;
+}
+
+.route {
+  text-decoration: none;
 }
 
 .logotree {
   width: 60px;
   margin: 10px;
 }
+.logotree:hover {
+  transform: scale(1.2);
+  transition-duration: 0.3s;
+}
 
 .logoburger {
   height: 2em;
   width: 2em;
-  color: #64a086;
+  color: #24a45c;
   margin: 10px 15px;
+}
+
+.navMenu {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin-top: 60px;
+  width: 90%;
+}
+
+.navMenu ul {
+  display: block;
+  position: absolute;
+  list-style: none;
+  padding: 30px;
+  padding-right: 9px;
+  width: 100%;
+  margin: 160px 20px 5px 0;
+  background-color: white;
+  z-index: 1000;
+  text-align: center;
+}
+
+.navMenu li {
+  color: #1c2d54;
+  font-weight: 900;
+  font-size: 1.5em;
+}
+
+@media screen and (min-width: 700px) {
+  .logoburger {
+    display: none;
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+  }
+  .navMenu ul {
+    display: flex;
+    flex-direction: row;
+  }
+  .navMenu li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    color: black;
+  }
+
+  .route {
+    text-decoration: none;
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bolder;
+  }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/header.module.css';
 import '../styles/footer.css';
@@ -6,33 +6,32 @@ import jetree from '../assets/jetree.png';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 export const Header = () => {
-  // const [showLinks, setShowLinks] = useState(false);
+  const [showLinks, setShowLinks] = useState(false);
 
-  // const handleShowMenu = () => {
-  //   setShowLinks(!showLinks);
-  // };
+  const handleShowMenu = () => {
+    setShowLinks(!showLinks);
+  };
 
   return (
-    <nav className="">
+    <nav className={styles.nav}>
       <div className={styles.navbar}>
-        <div>
-          {' '}
-          <Link to="/" className={styles.logohome}>
-            <img src={jetree} className={styles.logotree} alt="my-logo" />
-          </Link>
-        </div>
-        <div>
-          <GiHamburgerMenu className={styles.logoburger} />
-        </div>
+        <Link to="/" className={styles.logohome}>
+          <img src={jetree} className={styles.logotree} alt="my-logo" />
+        </Link>
+        <button type="button" onClick={handleShowMenu}>
+          <GiHamburgerMenu className={styles.logoburger} alt="logoBurger" />
+        </button>
       </div>
-      <ul className="burgerMenu">
-        <Link to="/" className="routeHome">
-          <li>Accueil</li>
-        </Link>
-        <Link to="/Map" className="routeMap">
-          <li>Carte interactive</li>
-        </Link>
-      </ul>
+      <div className={showLinks ? styles.navMenu : styles.navMenuMobile}>
+        <ul>
+          <Link to="/" className={styles.route}>
+            <li>Accueil</li>
+          </Link>
+          <Link to="/result/verre" className={styles.route}>
+            <li>Carte interactive</li>
+          </Link>
+        </ul>
+      </div>
     </nav>
   );
 };

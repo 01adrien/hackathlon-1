@@ -1,8 +1,85 @@
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5%;
+  margin: 0px 20px;
 }
 
-.verre {
+.button {
+  color: white;
+  font-size: 3rem;
+  padding: 10px;
+}
+/* VERRE */
+
+.verreContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.verreBackground {
+  background-color: #24a45c;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+/* DECHETTERIE */
+
+.decheterieContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.decheterieBackground {
+  background-color: #b6e5cc;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+/* VETEMENT */
+
+.vetementContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.vetementBackground {
+  background-color: #1c2d54;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+/* COMPOST */
+
+.compostContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.compostBackground {
+  background-color: #64a086;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.pointContainer {
+  width: 60%;
+  margin: 20px auto;
+  background: #4a546c;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
 }

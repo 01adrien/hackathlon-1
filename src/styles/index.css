@@ -3,5 +3,6 @@
 html,
 body,
 #root {
-  font-family: 'Dosis';
+  font-family: 'Dosis', sans-serif;
+  font-size: 1rem;
 }
