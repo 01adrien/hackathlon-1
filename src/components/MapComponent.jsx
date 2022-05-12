@@ -5,6 +5,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import {
   useParams
 } from "react-router-dom";
+import * as L from 'leaflet';
 
 import styles from '../styles/map.css'
 import axios from 'axios';
@@ -16,10 +17,22 @@ const lyonPosition = [45.764043 , 4.835659]
 
 const [result, setResult] = useState([])
 
+var LeafIcon = L.Icon.extend({
+  options: {
+     iconSize:     [25, 35],
+     iconAnchor:   [22, 70],
+     popupAnchor:  [-3, -76]
+  }
+});
+
+var greenIcon = new LeafIcon({
+  iconUrl: 'https://cdn-icons-png.flaticon.com/512/490/490091.png',
+})
+
 useEffect(() => {
   axios
     .get(
-      `http://localhost:5000/category-point/${params.category}`
+      `http://localhost:4000/category-point/${params.category}`
     )
     .then((result) => result.data)
     .then((data) => {

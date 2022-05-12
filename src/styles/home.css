@@ -10,6 +10,7 @@
   background-attachment: fixed;
   background-size: cover;
   min-height: 85vh;
+  display: flex;
 }
 
 .category-box {
@@ -41,6 +42,7 @@
   width: 200px;
   height: 30px;
   font-size: 1.5rem;
+  border: 2px solid var(--color1);
 }
 
 .category-title {
@@ -54,15 +56,16 @@
   height: 200px;
   padding: 20px;
   margin: auto;
-  margin-top: 150px;
   background-color: white;
   text-align: center;
   border-radius: 5px;
   background-color: var(--color2);
+  animation: fade-in 1.5s;
 }
 
 .popup-hide {
   display: none;
+  
 }
 
 .popup-button {
@@ -82,4 +85,22 @@
   font-size: 1.4rem;
   margin-bottom: 30px;
   margin-top: 10px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
