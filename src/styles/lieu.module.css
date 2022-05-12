@@ -1,0 +1,30 @@
+:root {
+    --grey: rgb(228,228,228);
+}
+
+.lieu {
+    width: 80%;
+    height: 70px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: white;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lieuDescription {
+    width: 200px;
+    height: 90px;
+    margin-top: -20px;
+    margin-right: -20px;
+    padding: 10px;
+    background-color: var(--grey);
+    border-radius: 15px;
+}
+
+.lieuImage {
+    width: auto;
+}
