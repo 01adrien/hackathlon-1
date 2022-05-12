@@ -1,113 +1,181 @@
 import React, { useState } from 'react';
 import styles from '../styles/formulaire.module.css';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Formulaire = () => {
-  const [rue, setRue] = useState('');
-  const [lat, setLat] = useState('');
-  const [long, setLong] = useState('');
-  const [cat, setCat] = useState();
+  const [nomForm, setNomForm] = useState('');
+  const [voieForm, setVoieForm] = useState('');
+  const [codePostalForm, setCodePostalForm] = useState('');
+  const [latForm, setLatForm] = useState('');
+  const [longForm, setLongForm] = useState('');
+  const [infoForm, setInfoForm] = useState('');
+
+  const notify = () => {
+    if (
+      nomForm === '' ||
+      voieForm === '' ||
+      codePostalForm === '' ||
+      latForm === '' ||
+      longForm === ''
+    ) {
+      toast.error(
+        'Tu dois renseigner tous les champs avant de soumettre un point',
+        {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      );
+    } else {
+      toast("🌳 Merci d'avoir renseigner un nouveau point !", {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
+  const nameToCategorie = {
+    'Recup Verre': 'Verre',
+    Decheterie: 'Decheterie',
+    'Borne Textile': 'Textile',
+    Compost: 'Compost',
+  };
+
+  const codePostalToArrondissement = {
+    69001: '1e arrondissement',
+    69002: '2e arrondissement',
+    69003: '3e arrondissement',
+    69004: '4e arrondissement',
+    69005: '5e arrondissement',
+    69006: '6e arrondissement',
+    69007: '7e arrondissement',
+    69008: '8e arrondissement',
+    69009: '9e arrondissement',
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setRue('');
-    setLat('');
-    setLong('');
-    setCat('');
+    const source = axios.CancelToken.source();
+
+    axios
+      .post('http://localhost:4000/point', {
+        nom: nomForm,
+        categorie: nameToCategorie[nomForm],
+        voie: voieForm,
+        code_postal: codePostalForm,
+        commune: codePostalToArrondissement[codePostalForm],
+        lat: latForm,
+        lon: longForm,
+        info: infoForm || '-',
+      })
+      .catch((err) => {
+        console.error(err.response.data);
+      })
+      .finally(setNomForm(' '), setVoieForm('')),
+      setCodePostalForm(''),
+      setLatForm(''),
+      setLongForm(''),
+      setInfoForm('');
+
+    return () => {
+      source.cancel('Component got unmounted');
+    };
   };
 
   return (
     <div>
       <form className={styles.formContainer} onSubmit={handleSubmit}>
         <h1 className={styles.h1Form}>ajout d&apos;une borne</h1>
-        <label htmlFor="namePoint" className={styles.selectContainer}>
-          <select
-            id="namePoint"
-            defaultValue={'default'}
-            className={styles.selectOption}
-            required
-          >
-            <option value={'default'} disabled>
-              nom du point
-            </option>
-            <option value={'recupverre'}>Recup Verre</option>
-          </select>
-        </label>
 
-        <label htmlFor="catPoint" className={styles.selectContainer}>
-          <select
-            id="catPoint"
-            className={styles.selectOption}
-            value={cat}
-            defaultValue={'default'}
-            onChange={(e) => setCat(e.target.value)}
-            required
-          >
-            <option value={'default'} disabled>
-              catégorie du point
-            </option>
-            <option value={'verre'}>Verre</option>
-          </select>
-        </label>
+        <select
+          id="namePoint"
+          value={nomForm}
+          onChange={(e) => setNomForm(e.target.value)}
+          className={styles.selectOption}
+          required
+        >
+          <option value="" disabled>
+            nom du point
+          </option>
+          <option value={'Recup Verre'}>Recup Verre</option>
+          <option value={'Decheterie'}>Decheterie</option>
+          <option value={'Borne Textile'}>Borne Textile</option>
+          <option value={'Compost'}>Compost</option>
+        </select>
 
-        <label htmlFor="ruePoint" className={styles.selectContainer}>
-          <input
-            type="text"
-            name="rue"
-            id="ruePoint"
-            placeholder="adresse du point"
-            autoComplete="off"
-            className={styles.inputOption}
-            value={rue}
-            onChange={(e) => setRue(e.target.value)}
-            required
-          />
-        </label>
+        <input
+          type="text"
+          name="rue"
+          id="ruePoint"
+          placeholder="adresse du point"
+          autoComplete="off"
+          className={styles.inputOption}
+          value={voieForm}
+          onChange={(e) => setVoieForm(e.target.value)}
+          required
+        />
 
-        <label htmlFor="arrPoint" className={styles.selectContainer}>
-          <select
-            id="arrPoint"
-            defaultValue={'default'}
-            className={styles.selectOption}
-            required
-          >
-            <option value={'default'} disabled>
-              arrondissement du point
-            </option>
-            <option value="1e arrondissement">1e arrondissement</option>
-          </select>
-        </label>
+        <input
+          type="text"
+          name="lat"
+          id="codePoint"
+          placeholder="code postal du point"
+          autoComplete="off"
+          className={styles.inputOption}
+          value={codePostalForm}
+          onChange={(e) => setCodePostalForm(e.target.value)}
+          required
+        />
 
-        <label htmlFor="latPoint" className={styles.selectContainer}>
-          <input
-            type="text"
-            name="lat"
-            id="latPoint"
-            placeholder="latitude du point"
-            autoComplete="off"
-            className={styles.inputOption}
-            value={lat}
-            onChange={(e) => setLat(e.target.value)}
-            required
-          />
-        </label>
+        <input
+          type="text"
+          name="lat"
+          id="latPoint"
+          placeholder="latitude du point"
+          autoComplete="off"
+          className={styles.inputOption}
+          value={latForm}
+          onChange={(e) => setLatForm(e.target.value)}
+          required
+        />
 
-        <label htmlFor="longPoint" className={styles.selectContainer}>
-          <input
-            type="text"
-            name="lat"
-            id="longPoint"
-            placeholder="longitude du point"
-            autoComplete="off"
-            className={styles.inputOption}
-            value={long}
-            onChange={(e) => setLong(e.target.value)}
-            required
-          />
-        </label>
+        <input
+          type="text"
+          name="lat"
+          id="longPoint"
+          placeholder="longitude du point"
+          autoComplete="off"
+          className={styles.inputOption}
+          value={longForm}
+          onChange={(e) => setLongForm(e.target.value)}
+          required
+        />
 
-        <button type="submit" className={styles.button}>
+        <textarea
+          name="lat"
+          id="infoPoint"
+          placeholder="info sur le point"
+          autoComplete="off"
+          className={styles.inputOption}
+          value={infoForm}
+          onChange={(e) => setInfoForm(e.target.value)}
+        />
+
+        <button type="submit" className={styles.button} onClick={notify}>
           ENVOYER
         </button>
+        <ToastContainer />
       </form>
     </div>
   );
