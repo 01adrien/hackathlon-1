@@ -31,9 +31,9 @@ l’appli qui t’aide à repérer la borne de collecte la plus proche de chez t
       <select className='category-select' onChange={(e) => handleSelectCategory(e.target.value)}>
         <option value=''>Choix</option>
         <option value='verre'>Verre</option>
-        <option value='dechet'>Décheterie</option>
-        <option value='vetement'>Vêtements</option>
-        <option value='compost'>Composte</option>
+        <option value='dechetterie'>Décheterie</option>
+        <option value='vetements'>Vêtements</option>
+        <option value='compost'>Compost</option>
         </select>
       </div>
     </div>
