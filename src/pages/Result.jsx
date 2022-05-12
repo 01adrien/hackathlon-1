@@ -33,7 +33,7 @@ export const Result = () => {
     <div className='result'>
         <MapComponent markersRef={markersRef}/>
         <Selection />
-        {result.map((point) => <Lieu markersRef={markersRef} key={point.id} id={point.id} categorie={point.categorie} voie={point.voie} code_postal={point.code_postal} commune={point.commune} />)}
+        {result.map((point) => <Lieu markersRef={markersRef} key={point.id} id={point.id} categorie={point.nom} voie={point.voie} code_postal={point.code_postal} commune={point.commune} />)}
     </div>
   )
 }
