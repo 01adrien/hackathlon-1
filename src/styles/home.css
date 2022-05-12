@@ -10,6 +10,7 @@
   background-attachment: fixed;
   background-size: cover;
   min-height: 85vh;
+  display: flex;
 }
 
 .category-box {
@@ -54,11 +55,11 @@
   height: 200px;
   padding: 20px;
   margin: auto;
-  margin-top: 150px;
   background-color: white;
   text-align: center;
   border-radius: 5px;
   background-color: var(--color2);
+  margin-bottom: 300px;
 }
 
 .popup-hide {
