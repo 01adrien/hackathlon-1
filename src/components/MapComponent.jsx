@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
@@ -9,7 +10,7 @@ import styles from '../styles/map.css'
 import axios from 'axios';
 
 
-export default function MapComponent() {
+export default function MapComponent({ markersRef }) {
 const params = useParams();
 const lyonPosition = [45.764043 , 4.835659]
 
@@ -41,7 +42,9 @@ useEffect(() => {
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     />
-    {result.map((point) => (<Marker key={point.id} position={[point.lat, point.lon]} >
+    {result.map((point) => (<Marker key={point.id} position={[point.lat, point.lon]} ref={(element) => {
+      markersRef.current[point.id] = element
+    }} >
       <Popup>
         <h1>{point.nom}</h1>
         <p>{point.voie}</p>
