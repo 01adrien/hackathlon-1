@@ -55,7 +55,7 @@ useEffect(() => {
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     />
-    {result.map((point) => (<Marker key={point.id} position={[point.lat, point.lon]} ref={(element) => {
+    {result.map((point) => (<Marker key={point.id} icon={greenIcon} position={[point.lat, point.lon]} ref={(element) => {
       markersRef.current[point.id] = element
     }} >
       <Popup>
