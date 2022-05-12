@@ -30,9 +30,6 @@ export const Result = () => {
 
   return (
     <div className='result'>
-      <div>
-        <h1>Result</h1>
-      </div>
         <MapComponent markersRef={markersRef}/>
         {result.map((point) => <Lieu markersRef={markersRef} key={point.id} id={point.id} categorie={point.categorie} voie={point.voie} code_postal={point.code_postal} commune={point.commune} />)}
     </div>

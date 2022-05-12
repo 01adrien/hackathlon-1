@@ -32,7 +32,7 @@ var greenIcon = new LeafIcon({
 useEffect(() => {
   axios
     .get(
-      `http://localhost:4000/category-point/${params.category}`
+      `http://localhost:5000/category-point/${params.category}`
     )
     .then((result) => result.data)
     .then((data) => {
