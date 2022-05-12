@@ -60,10 +60,12 @@ body {
   text-align: center;
   border-radius: 5px;
   background-color: var(--color2);
+  animation: fade-in 5s;
 }
 
 .popup-hide {
   display: none;
+  animation: fade-in 2s;
 }
 
 .popup-button {
@@ -83,4 +85,13 @@ body {
   font-size: 1.4rem;
   margin-bottom: 30px;
   margin-top: 10px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
