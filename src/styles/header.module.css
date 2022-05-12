@@ -36,7 +36,7 @@
 .logoburger {
   height: 2em;
   width: 2em;
-  color: #64a086;
+  color: #24a45c;
   margin: 10px 15px;
 }
 
@@ -56,6 +56,7 @@
   margin-top: 90px;
   width: 90%;
   background-color: white;
+  z-index: 1000;
 }
 
 @media screen and (min-width: 700px) {
@@ -75,8 +76,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: black;
     margin: 10px;
+    color: black;
   }
 
   .route {
