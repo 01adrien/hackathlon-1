@@ -7,8 +7,6 @@
     height: 100px;
     text-align: center;
     margin: auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
     background-color: white;
     padding: 40px;
     display: flex;
@@ -28,4 +26,5 @@
 
 .lieuImage {
     width: auto;
+    margin-right: 30px;
 }
