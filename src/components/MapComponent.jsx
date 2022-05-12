@@ -6,17 +6,34 @@ import {
 } from "react-router-dom";
 
 import styles from '../styles/map.css'
+import axios from 'axios';
 
 
-export default function MapComponent () {
+export default function MapComponent() {
 const params = useParams();
-console.log(params)
-
 const lyonPosition = [45.764043 , 4.835659]
+
+const [result, setResult] = useState([])
+
+useEffect(() => {
+  axios
+    .get(
+      `http://localhost:5000/category-point/${params.category}`
+    )
+    .then((result) => result.data)
+    .then((data) => {
+      setResult(data);
+      console.log(data)
+    })
+    .catch(() => {
+      alert('No search results');
+    })
+}, []);
+
   return (
     <MapContainer
     center={lyonPosition}
-    zoom={15}
+    zoom={14}
     scrollWheelZoom={false}
     className={styles.map}
   >
@@ -24,10 +41,14 @@ const lyonPosition = [45.764043 , 4.835659]
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     />
-
-    <Marker position={lyonPosition} >
-
-    </Marker>
+    {result.map((point) => (<Marker key={point.id} position={[point.lat, point.lon]} >
+      <Popup>
+        <h1>{point.nom}</h1>
+        <p>{point.voie}</p>
+        <p>{point.commune}</p>
+      </Popup>
+</Marker>))
+    }
   </MapContainer>
   );
 }

@@ -2,12 +2,3 @@
   margin: 0;
   padding: 0;
 }
-
-.main {
-  background-image: url('../assets/background.jpeg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-  height: 85vh;
-}
