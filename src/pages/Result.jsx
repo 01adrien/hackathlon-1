@@ -1,10 +1,10 @@
 import React from 'react'
-import Map from '../components/Map'
+import MapComponent from "../components/MapComponent"
 
 export const Result = () => {
   return (
     <div><h1>Result</h1>
-    <Map /> 
+    <MapComponent /> 
     </div>
   )
 }
