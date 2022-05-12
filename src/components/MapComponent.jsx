@@ -41,7 +41,7 @@ useEffect(() => {
     .catch(() => {
       alert('No search results');
     })
-}, []);
+}, [params]);
 
   return (
     <MapContainer

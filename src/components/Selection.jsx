@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from '../styles/selection.module.css';
 import { useNavigate } from 'react-router-dom';
 import { FaTrash, FaTshirt } from 'react-icons/fa';
 import { RiPlantFill } from 'react-icons/ri';
 import { GiBrokenBottle } from 'react-icons/gi';
+import { Formulaire } from './Formulaire';
 
-export const Sélection = () => {
+export const Selection = () => {
   const navigate = useNavigate();
 
   const selection = (route) => {
@@ -13,6 +14,12 @@ export const Sélection = () => {
       replace: true,
     });
   };
+
+  const [displayForm, setDisplayForm] = useState(false);
+
+  const handleForm = () => {
+    setDisplayForm(!displayForm)
+  }
 
   return (
     <>
@@ -30,7 +37,7 @@ export const Sélection = () => {
         <section className={styles.decheterieContainer}>
           <button className={styles.decheterieBackground}>
             <FaTrash
-              onClick={() => selection('decheterie')}
+              onClick={() => selection('dechetterie')}
               className={styles.button}
             />
           </button>
@@ -40,7 +47,7 @@ export const Sélection = () => {
         <section className={styles.vetementContainer}>
           <button className={styles.vetementBackground}>
             <FaTshirt
-              onClick={() => selection('vetement')}
+              onClick={() => selection('vetements')}
               className={styles.button}
             />
           </button>
@@ -58,7 +65,8 @@ export const Sélection = () => {
         </section>
       </div>
 
-      <div className={styles.pointContainer}>AJOUTER MON POINT</div>
+      <div className={styles.pointContainer} onClick={handleForm}>AJOUTER MON POINT</div>
+      {displayForm ? <Formulaire/> : ''}
     </>
   );
 };
