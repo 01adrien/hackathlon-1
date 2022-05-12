@@ -1,0 +1,29 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5%;
+}
+
+.verreContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.verreBackground {
+  background-color: #24a45c;
+  border: none;
+}
+
+.dechetterieContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.dechetterieBackground {
+  background-color: #b6e5cc;
+  border: none;
+}
