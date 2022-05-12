@@ -7,15 +7,18 @@ import { GiBrokenBottle } from 'react-icons/gi';
 import { Formulaire } from './Formulaire';
 
 export const Selection = () => {
+  const [displayForm, setDisplayForm] = useState(false);
+  const [selected, setSelected] = useState(null)
   const navigate = useNavigate();
 
   const selection = (route) => {
+    setSelected(!selected)
     navigate(`/result/${route}`, {
       replace: true,
     });
   };
 
-  const [displayForm, setDisplayForm] = useState(false);
+
 
   const handleForm = () => {
     setDisplayForm(!displayForm)
@@ -24,7 +27,7 @@ export const Selection = () => {
   return (
     <>
       <div className={styles.container}>
-        <section className={styles.verreContainer}>
+        <section onClick={() => setSelected} className={selected ? styles.verreContainer2 : styles.verreContainer}>
           <button className={styles.verreBackground}>
             <GiBrokenBottle
               onClick={() => selection('verre')}
@@ -34,17 +37,17 @@ export const Selection = () => {
           VERRE
         </section>
 
-        <section className={styles.decheterieContainer}>
+        <section className={styles.verreContainer}>
           <button className={styles.decheterieBackground}>
             <FaTrash
-              onClick={() => selection('dechetterie')}
+              onClick={() => selection('decheterie')}
               className={styles.button}
             />
           </button>
           DECHETERIE
         </section>
 
-        <section className={styles.vetementContainer}>
+        <section onClick={() => setSelected} className={selected ? styles.verreContainer2 : styles.verreContainer}>
           <button className={styles.vetementBackground}>
             <FaTshirt
               onClick={() => selection('vetements')}
@@ -54,7 +57,7 @@ export const Selection = () => {
           VETEMENT
         </section>
 
-        <section className={styles.compostContainer}>
+        <section onClick={() => setSelected} className={selected ? styles.verreContainer2 : styles.verreContainer}>
           <button className={styles.compostBackground}>
             <RiPlantFill
               onClick={() => selection('compost')}

@@ -19,6 +19,12 @@
   text-align: center;
 }
 
+.verreContainer2 {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
+
 .verreBackground {
   background-color: #24a45c;
   border: none;
