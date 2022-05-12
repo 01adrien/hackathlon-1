@@ -25,7 +25,7 @@ export const Result = () => {
       .catch(() => {
         alert('No search results');
       })
-  }, []);
+  }, [params]);
 
   return (
     <div className='result'>
