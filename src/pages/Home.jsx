@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
 import "../styles/home.css";
+import { useNavigate } from 'react-router-dom';
 
 export const Home = () => {
+  const navigate = useNavigate();
+
+  const handleSelectCategory = (category) => {
+    navigate(
+      `/result/${category}`,
+      {
+        replace: true,
+      }
+    )
+  }
+
   const [show, setShow] = useState(true);
 
     function handleClick() {
@@ -16,11 +28,12 @@ l’appli qui t’aide à repérer la borne de collecte la plus proche de chez t
       </div>
       <div className={!show ? 'category-box' : 'category-box-hide'}>
         <h1 className='category-title'>Je veux jeter</h1>
-      <select className='category-select'>
-        <option value="Verre">Verre</option>
-        <option value="Décheterie">Décheterie</option>
-        <option value="Vêtements">Vêtements</option>
-        <option value="Compost">Compost</option>
+      <select className='category-select' onChange={(e) => handleSelectCategory(e.target.value)}>
+        <option value=''>Choix</option>
+        <option value='verre'>Verre</option>
+        <option value='dechet'>Décheterie</option>
+        <option value='vetement'>Vêtements</option>
+        <option value='compost'>Composte</option>
         </select>
       </div>
     </div>

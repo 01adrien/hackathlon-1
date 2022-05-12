@@ -7,10 +7,10 @@ import "../styles/app.css";
 
 export const Main = () => {
   return (
-    <div className="main">
+    <div className='main'>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/result" element={<Result />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/result/:category" element={<Result />} />
       </Routes>
     </div>
   );
