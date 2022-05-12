@@ -1,0 +1,86 @@
+:root {
+  --color1: rgb(35, 164, 92);
+  --color2: rgb(28, 45, 83);
+}
+
+body {
+  background-image: url('../assets/background.jpeg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.category-box {
+  width: 220px;
+  padding: 40px;
+  padding-bottom: 20px;
+  margin: auto;
+  margin-top: 150px;
+  background-color: white;
+  text-align: center;
+  border-radius: 5px;
+  background-color: var(--color2);
+}
+
+.category-box-hide {
+  display: none;
+}
+
+.category-select {
+  text-align: center;
+  background-color: var(--color1);
+  color: white;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-image: url('../assets/fleche.png');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+  background-size: 1rem;
+  border-radius: 5px;
+  width: 200px;
+  height: 30px;
+  font-size: 1.5rem;
+}
+
+.category-title {
+  margin-bottom: 20px;
+  margin-top: -20px;
+  color: white;
+}
+
+.popup {
+  width: 250px;
+  height: 200px;
+  padding: 20px;
+  margin: auto;
+  margin-top: 150px;
+  background-color: white;
+  text-align: center;
+  border-radius: 5px;
+  background-color: var(--color2);
+}
+
+.popup-hide {
+  display: none;
+}
+
+.popup-button {
+  text-align: center;
+  background-color: var(--color1);
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.popup-text {
+  color: white;
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}

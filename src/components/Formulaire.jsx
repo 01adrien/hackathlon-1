@@ -42,7 +42,7 @@ export const Formulaire = () => {
             onChange={(e) => setCat(e.target.value)}
             required
           >
-            <option value={'default'} style={{ color: '#eee' }} disabled>
+            <option value={'default'} disabled>
               catégorie du point
             </option>
             <option value={'verre'}>Verre</option>
