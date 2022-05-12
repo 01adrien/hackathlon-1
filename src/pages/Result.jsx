@@ -1,8 +1,38 @@
-import React from 'react'
-import MapComponent from "../components/MapComponent"
+import React, { useEffect, useState } from 'react'
+import { Lieu } from "../components/Lieu";
+import MapComponent from "../components/MapComponent";
+import "../styles/result.css";
+import axios from 'axios';
+import {
+  useParams
+} from "react-router-dom";
 
 export const Result = () => {
+  const [result, setResult] = useState([]);
+  const params = useParams();
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:5000/category-point/${params.category}`
+      )
+      .then((result) => result.data)
+      .then((data) => {
+        setResult(data);
+        console.log(data)
+      })
+      .catch(() => {
+        alert('No search results');
+      })
+  }, []);
+
   return (
-    <MapComponent /> 
+    <div className='result'>
+      <div>
+        <h1>Result</h1>
+      </div>
+        <MapComponent />
+        {result.map((point) => <Lieu key={point.id} categorie={point.categorie} voie={point.voie} code_postal={point.code_postal} commune={point.commune} />)}
+    </div>
   )
 }
