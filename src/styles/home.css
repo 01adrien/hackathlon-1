@@ -3,13 +3,13 @@
   --color2: rgb(28, 45, 83);
 }
 
-body {
+.home {
   background-image: url('../assets/background.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
-  min-height: 50vh;
+  min-height: 85vh;
 }
 
 .category-box {
@@ -18,7 +18,6 @@ body {
   padding-bottom: 20px;
   margin: auto;
   margin-top: 150px;
-  background-color: white;
   text-align: center;
   border-radius: 5px;
   background-color: var(--color2);
