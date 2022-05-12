@@ -1,0 +1,53 @@
+.formContainer {
+  background-color: #4a546c;
+  width: 70%;
+  margin: auto;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+
+.h1Form {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* SELECT */
+
+.selectContainer {
+  width: 90%;
+  background-color: #e4e4e4;
+  border-radius: 10px;
+  margin: 10px 0px;
+}
+
+.selectOption {
+  width: 100%;
+  background-color: #e4e4e4;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* INPUT */
+
+.inputOption {
+  width: 100%;
+  background-color: #e4e4e4;
+  border-radius: 10px;
+  padding: 10px 0px 10px 10px;
+  border: none;
+}
+
+/* BOUTON */
+.button {
+  background: #b6e5cc;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
