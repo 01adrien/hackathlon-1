@@ -20,7 +20,7 @@ export const Home = () => {
         setShow(!show)
     }
   return (
-    <div>
+    <div className='home'>
       <div className={show ? 'popup' : 'popup-hide'}>
         <p className='popup-text'>Bienvenue sur JeTree, 
 l’appli qui t’aide à repérer la borne de collecte la plus proche de chez toi.</p>

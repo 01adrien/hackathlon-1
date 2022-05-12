@@ -4,7 +4,7 @@
 
 .lieu {
     width: 80%;
-    height: 70px;
+    height: 100px;
     text-align: center;
     margin: auto;
     margin-bottom: 20px;
@@ -16,8 +16,8 @@
 }
 
 .lieuDescription {
-    width: 200px;
-    height: 90px;
+    width: 230px;
+    height: 115px;
     margin-top: -20px;
     margin-right: -20px;
     padding: 10px;
