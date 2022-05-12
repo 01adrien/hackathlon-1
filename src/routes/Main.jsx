@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
 import { Home } from '../pages/Home';
 import { Result } from '../pages/Result';
 import "../styles/home.css";
@@ -13,5 +13,5 @@ export const Main = () => {
       <Route path="/result/:category" element={<Result />} />
       </Routes>
     </div>
-  )
-}
+  );
+};

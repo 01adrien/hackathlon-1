@@ -4,5 +4,10 @@
 }
 
 .main {
-  height: 100vh;
+  background-image: url('../assets/background.jpeg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 85vh;
 }
