@@ -3,10 +3,6 @@
   padding: 0;
 }
 
-body {
-  background-image: url('../assets/background.jpeg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
+.main {
+  min-height: 79vh;
 }

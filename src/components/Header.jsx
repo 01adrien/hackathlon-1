@@ -6,8 +6,14 @@ import jetree from '../assets/jetree.png';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 export const Header = () => {
+  // const [showLinks, setShowLinks] = useState(false);
+
+  // const handleShowMenu = () => {
+  //   setShowLinks(!showLinks);
+  // };
+
   return (
-    <nav>
+    <nav className="">
       <div className={styles.navbar}>
         <div>
           {' '}
@@ -20,18 +26,11 @@ export const Header = () => {
         </div>
       </div>
       <ul className="burgerMenu">
-        <li className="listMenu">
-          <Link to="/" className="routesMenu">
-            Accueil
-          </Link>
-        </li>
-        <li>
-          <Link to="/Map" className="routesMenu">
-            Carte interactive
-          </Link>
-        </li>
-        <Link to="/" className="routesMenu">
-          Ajouter une borne
+        <Link to="/" className="routeHome">
+          <li>Accueil</li>
+        </Link>
+        <Link to="/Map" className="routeMap">
+          <li>Carte interactive</li>
         </Link>
       </ul>
     </nav>

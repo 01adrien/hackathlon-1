@@ -47,8 +47,8 @@ export const Formulaire = () => {
 
   const nameToCategorie = {
     'Recup Verre': 'Verre',
-    Decheterie: 'Decheterie',
-    'Borne Textile': 'Textile',
+    Decheterie: 'dechetterie',
+    'Borne Textile': 'vetements',
     Compost: 'Compost',
   };
 
