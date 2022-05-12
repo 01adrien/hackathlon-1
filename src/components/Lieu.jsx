@@ -9,9 +9,8 @@ import { RiPlantFill } from 'react-icons/ri';
 import { GiBrokenBottle } from 'react-icons/gi';
 
 export const Lieu = ({ categorie, voie, code_postal, commune, markersRef, id}) => {
-  console.log(categorie)
   let image = null;
-  if (categorie === 'Verre') {
+  if (categorie === 'Recup Verre') {
     image = <section className={iconStyle.verreContainer}>
               <button className={iconStyle.verreBackground}>
                 <GiBrokenBottle
@@ -20,7 +19,7 @@ export const Lieu = ({ categorie, voie, code_postal, commune, markersRef, id}) =
               </button>
             </section>
   }
-  if (categorie === 'Compost') {
+  if (categorie === 'Bornes à compost') {
     image = <section className={iconStyle.decheterieContainer}>
               <button className={iconStyle.decheterieBackground}>
                 <RiPlantFill
@@ -29,7 +28,7 @@ export const Lieu = ({ categorie, voie, code_postal, commune, markersRef, id}) =
               </button>
             </section>
   }
-  if (categorie === 'Vetements') {
+  if (categorie === 'Collecte vetements') {
     image = <section className={iconStyle.vetementContainer}>
               <button className={iconStyle.vetementBackground}>
                 <FaTshirt
@@ -38,7 +37,7 @@ export const Lieu = ({ categorie, voie, code_postal, commune, markersRef, id}) =
               </button>
             </section>
   }
-  if (categorie == 'Dechetterie') {
+  if (categorie.startsWith('D')) {
     image = <section className={iconStyle.compostContainer}>
               <button className={iconStyle.compostBackground}>
                 <FaTrash
