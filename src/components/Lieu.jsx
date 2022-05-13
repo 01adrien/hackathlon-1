@@ -20,7 +20,7 @@ export const Lieu = ({ categorie, voie, code_postal, commune, markersRef, id, no
               </button>
             </section>
   }
-  if (nom === 'Bornes à compost') {
+  if (categorie === 'Bornes à compost') {
     image = <section className={iconStyle.decheterieContainer}>
               <button className={iconStyle.decheterieBackground}>
                 <RiPlantFill
@@ -29,7 +29,7 @@ export const Lieu = ({ categorie, voie, code_postal, commune, markersRef, id, no
               </button>
             </section>
   }
-  if (nom === 'Collecte vetements') {
+  if (categorie === 'Collecte vetements') {
     image = <section className={iconStyle.vetementContainer}>
               <button className={iconStyle.vetementBackground}>
                 <FaTshirt
@@ -38,7 +38,7 @@ export const Lieu = ({ categorie, voie, code_postal, commune, markersRef, id, no
               </button>
             </section>
   }
-  if (categorie === 'Decheterie') {
+  if (categorie.startsWith('D')) {
     image = <section className={iconStyle.compostContainer}>
               <button className={iconStyle.compostBackground}>
                 <FaTrash

@@ -18,11 +18,10 @@ export const Result = () => {
       .then((result) => result.data)
       .then((data) => {
         setResult(data);
-        console.log(data);
       })
       .catch(() => {
         alert('No search results');
-      });
+      })
   }, [params]);
 
   return (
