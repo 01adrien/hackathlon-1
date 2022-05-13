@@ -37,7 +37,7 @@ export const Selection = () => {
         <section className={styles.decheterieContainer}>
           <button className={styles.decheterieBackground}>
             <FaTrash
-              onClick={() => selection('dechetterie')}
+              onClick={() => selection('decheterie')}
               className={styles.button}
             />
           </button>
