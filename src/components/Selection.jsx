@@ -66,7 +66,7 @@ export const Selection = () => {
       </div>
 
       <div className={styles.pointContainer} onClick={handleForm}>AJOUTER MON POINT</div>
-      {displayForm ? <Formulaire/> : ''}
+      {displayForm ? <Formulaire abortForm={setDisplayForm(!displayForm)}/> : ''}
     </>
   );
 };

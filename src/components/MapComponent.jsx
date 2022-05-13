@@ -46,7 +46,7 @@ useEffect(() => {
   return (
     <MapContainer
     center={lyonPosition}
-    zoom={15}
+    zoom={13}
     scrollWheelZoom={false}
     className={styles.map}
   >
