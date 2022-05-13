@@ -26,7 +26,7 @@ export const Formulaire = ({ abortForm }) => {
         'Tu dois renseigner tous les champs avant de soumettre un point',
         {
           position: 'top-right',
-          autoClose: 5000,
+          autoClose: 1500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -37,7 +37,7 @@ export const Formulaire = ({ abortForm }) => {
     } else {
       toast("🌳 Merci d'avoir renseigné un nouveau point !", {
         position: 'top-right',
-        autoClose: 2000,
+        autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -49,8 +49,8 @@ export const Formulaire = ({ abortForm }) => {
 
   const nameToCategorie = {
     'Recup Verre': 'Verre',
-    Decheterie: 'dechetterie',
-    'Borne Textile': 'vetements',
+    Decheterie: 'Decheterie',
+    'Collecte vetements': 'Vetements',
     Compost: 'Compost',
   };
 
@@ -81,7 +81,7 @@ export const Formulaire = ({ abortForm }) => {
         lon: longForm,
         info: infoForm || '-',
       })
-      .then(() => setTimeout(abortForm, 2500))
+      .then(() => setTimeout(abortForm, 1700))
       .catch((err) => {
         console.error(err.response.data);
       });
@@ -110,8 +110,8 @@ export const Formulaire = ({ abortForm }) => {
               nom du point
             </option>
             <option value={'Recup Verre'}>Recup Verre</option>
-            <option value={'Decheterie'}>Decheterie</option>
-            <option value={'Borne Textile'}>Borne Textile</option>
+            <option value={'Decheterie'}>Décheterie</option>
+            <option value={'Collecte vetements'}>Collecte vêtements</option>
             <option value={'Compost'}>Compost</option>
           </select>
 
