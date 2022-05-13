@@ -28,7 +28,7 @@ export default function MapComponent({ markersRef }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/category-point/${params.category}`)
+      .get(`http://localhost:5000/category-point/${params.category}`)
       .then((result) => result.data)
       .then((data) => {
         setResult(data);
