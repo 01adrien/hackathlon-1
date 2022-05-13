@@ -16,6 +16,10 @@
   width: 100%;
 }
 
+.burger {
+  margin-right: 0.5rem;
+}
+
 .navMenuMobile {
   display: none;
 }
@@ -38,8 +42,8 @@
   border: white;
 }
 .logoburger {
-  height: 2.8em;
-  width: 2.8em;
+  height: 2.5em;
+  width: 2.5em;
   color: #24a45c;
   margin: 10px 15px;
 }
@@ -51,7 +55,7 @@
   background-color: white;
   border-radius: 15px;
   margin-top: 60px;
-  width: 90%;
+  width: 100vw;
 }
 
 .navMenu ul {
@@ -62,8 +66,9 @@
   width: 100%;
   margin: 160px 20px 5px 0px;
   background-color: white;
-  z-index: 1000;
+  z-index: 3000;
   text-align: center;
+  animation: fade-in 0.5s;
 }
 
 .navMenu li {
@@ -73,6 +78,19 @@
   font-weight: 900;
   font-size: 1.3em;
   margin: 10px;
+}
+
+li:hover {
+  color: #d8d8eb;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media screen and (min-width: 700px) {
@@ -85,16 +103,6 @@
     background-color: white;
     justify-content: flex-end;
   }
-  /* .navMenu ul {
-    display: flex;
-    flex-direction: row;
-  }
-  .navMenu li {
-    display: flex;
-    text-align: right;
-    margin: 10px;
-    color: black;
-  } */
 
   .navMenuMobile {
     text-align: right;

@@ -20,7 +20,7 @@ export const Header = () => {
         </Link>
         <button
           type="button"
-          className={styles.button}
+          className={styles.burger}
           onClick={handleShowMenu}
         >
           <GiHamburgerMenu className={styles.logoburger} alt="logoBurger" />

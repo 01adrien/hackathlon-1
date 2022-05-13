@@ -33,7 +33,7 @@ export const Formulaire = () => {
         }
       );
     } else {
-      toast("🌳 Merci d'avoir renseigner un nouveau point !", {
+      toast("🌳 Merci d'avoir renseigné un nouveau point !", {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -53,15 +53,15 @@ export const Formulaire = () => {
   };
 
   const codePostalToArrondissement = {
-    69001: '1e arrondissement',
-    69002: '2e arrondissement',
-    69003: '3e arrondissement',
-    69004: '4e arrondissement',
-    69005: '5e arrondissement',
-    69006: '6e arrondissement',
-    69007: '7e arrondissement',
-    69008: '8e arrondissement',
-    69009: '9e arrondissement',
+    69001: 'Lyon 1e arrondissement',
+    69002: 'Lyon 2e arrondissement',
+    69003: 'Lyon 3e arrondissement',
+    69004: 'Lyon 4e arrondissement',
+    69005: 'Lyon 5e arrondissement',
+    69006: 'Lyon 6e arrondissement',
+    69007: 'Lyon 7e arrondissement',
+    69008: 'Lyon 8e arrondissement',
+    69009: 'Lyon 9e arrondissement',
   };
 
   const handleSubmit = (e) => {
@@ -69,7 +69,7 @@ export const Formulaire = () => {
     const source = axios.CancelToken.source();
 
     axios
-      .post('http://localhost:4000/point', {
+      .post('http://localhost:5000/point', {
         nom: nomForm,
         categorie: nameToCategorie[nomForm],
         voie: voieForm,
