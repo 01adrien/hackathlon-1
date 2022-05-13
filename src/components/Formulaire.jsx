@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import styles from '../styles/formulaire.module.css';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const Formulaire = (abortForm) => {
+export const Formulaire = ({ abortForm }) => {
   const [nomForm, setNomForm] = useState('');
   const [voieForm, setVoieForm] = useState('');
   const [codePostalForm, setCodePostalForm] = useState('');
@@ -97,6 +98,7 @@ export const Formulaire = (abortForm) => {
     <div className={styles.popup_inn}>
       <div className={styles.popup}>
         <form className={styles.formContainer} onSubmit={handleSubmit}>
+          <img src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' className={styles.abort} onClick={abortForm} />
           <h1 className={styles.h1Form}>ajout d&apos;une borne</h1>
 
           <select
@@ -176,7 +178,6 @@ export const Formulaire = (abortForm) => {
           <button type="submit" className={styles.button} onClick={notify}>
             ENVOYER
           </button>
-          <p onClick={abortForm}>quitter</p>
           <ToastContainer />
         </form>
       </div>

@@ -55,8 +55,9 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  background-color: rgba(0,0,0, 0.5);
+  /* background-color: rgba(0,0,0, 0.5); */
   z-index: 4000;
+  animation: fade-in 0.5s;
 }
 .popup_inner {
   position: absolute;
@@ -66,4 +67,19 @@
   bottom: 25%;
   margin: auto;
   background: white;
+}
+
+.abort {
+  height: 30px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+@keyframes fade-in {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
 }
