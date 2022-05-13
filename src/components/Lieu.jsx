@@ -3,7 +3,6 @@
 import React from 'react'
 import style from "../styles/lieu.module.css";
 import iconStyle from '../styles/selection.module.css'
-import logo from "../assets/jetree.png"
 import { FaTrash, FaTshirt } from 'react-icons/fa';
 import { RiPlantFill } from 'react-icons/ri';
 import { GiBrokenBottle } from 'react-icons/gi';
