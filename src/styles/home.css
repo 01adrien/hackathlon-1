@@ -14,6 +14,7 @@
 }
 
 .category-box {
+  filter: drop-shadow(0 0 0.75rem black);
   width: 220px;
   padding: 40px;
   padding-bottom: 20px;
@@ -24,6 +25,12 @@
   background-color: var(--color2);
   filter: drop-shadow(0 0 0.75rem black);
   animation: fade-in 1.5s;
+}
+
+.popup-button:hover {
+  transition: all 1s;
+  color: black;
+  background-color: white;
 }
 
 .category-box-hide {
