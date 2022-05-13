@@ -1,0 +1,133 @@
+.header {
+  height: 60px;
+}
+
+.nav {
+  display: flex;
+  background-color: white;
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+
+.burger {
+  margin-right: 0.5rem;
+}
+
+.navMenuMobile {
+  display: none;
+}
+
+.route {
+  text-decoration: none;
+}
+
+.logotree {
+  width: 60px;
+  margin: 10px;
+}
+.logotree:hover {
+  transform: scale(1.2);
+  transition-duration: 0.3s;
+}
+
+.burger {
+  background-color: white;
+  border: white;
+}
+.logoburger {
+  height: 2.5em;
+  width: 2.5em;
+  color: #24a45c;
+  margin: 10px 15px;
+}
+
+.navMenu {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  margin-top: 60px;
+  width: 100vw;
+}
+
+.navMenu ul {
+  display: block;
+  position: absolute;
+  list-style: none;
+  padding: 21px 0px;
+  width: 100%;
+  margin: 160px 20px 5px 0px;
+  background-color: white;
+  z-index: 3000;
+  text-align: center;
+}
+
+.navMenu li {
+  color: #1c2d54;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Verdana, sans-serif;
+  font-weight: 900;
+  font-size: 1.3em;
+  margin: 10px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .burger {
+    display: none;
+  }
+
+  /* .navMenu ul {
+    display: none;
+  } */
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    justify-content: flex-end;
+  }
+
+  .navMenuMobile {
+    text-align: right;
+    display: flex;
+  }
+
+  .navMenuMobile ul {
+    display: flex;
+    align-items: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin : 2px 2px;
+  }
+
+  .navMenuMobile li {
+    color: #1c2d54;
+    font-weight: 900;
+    font-size: 1.1em;
+    width: 150px;
+    margin: 10px;
+  }
+  .route {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bolder;
+  }
+}

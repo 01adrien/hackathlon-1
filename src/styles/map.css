@@ -1,0 +1,25 @@
+.leaflet-container {
+  width: 100%;
+  max-width: 1024px;
+  min-height: 50vh;
+  margin: 15px auto;
+}
+
+.leaflet-popup-content p {
+  margin: 5px 0;
+  color: white;
+}
+
+.leaflet-popup-content h1 {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #4a546c;
+}
+
+.data-popup {
+  color: green;
+}
