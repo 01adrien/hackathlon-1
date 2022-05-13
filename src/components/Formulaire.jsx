@@ -37,7 +37,7 @@ export const Formulaire = ({ abortForm }) => {
     } else {
       toast("🌳 Merci d'avoir renseigné un nouveau point !", {
         position: 'top-right',
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -81,14 +81,11 @@ export const Formulaire = ({ abortForm }) => {
         lon: longForm,
         info: infoForm || '-',
       })
+      .then(() => setTimeout(abortForm, 2500))
       .catch((err) => {
         console.error(err.response.data);
-      })
-      .finally(setNomForm(' '), setVoieForm('')),
-      setCodePostalForm(''),
-      setLatForm(''),
-      setLongForm(''),
-      setInfoForm('');
+      });
+   
 
     return () => {
       source.cancel('Component got unmounted');

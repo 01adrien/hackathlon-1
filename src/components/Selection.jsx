@@ -18,7 +18,6 @@ export const Selection = () => {
     });
   };
 
-
   const handleForm = () => {
     setDisplayForm(!displayForm)
   }
