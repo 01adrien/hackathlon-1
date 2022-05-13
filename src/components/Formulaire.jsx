@@ -1,10 +1,12 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import styles from '../styles/formulaire.module.css';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const Formulaire = () => {
+export const Formulaire = ({ abortForm }) => {
   const [nomForm, setNomForm] = useState('');
   const [voieForm, setVoieForm] = useState('');
   const [codePostalForm, setCodePostalForm] = useState('');
@@ -24,7 +26,7 @@ export const Formulaire = () => {
         'Tu dois renseigner tous les champs avant de soumettre un point',
         {
           position: 'top-right',
-          autoClose: 5000,
+          autoClose: 1500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -35,7 +37,7 @@ export const Formulaire = () => {
     } else {
       toast("🌳 Merci d'avoir renseigné un nouveau point !", {
         position: 'top-right',
-        autoClose: 5000,
+        autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -47,8 +49,8 @@ export const Formulaire = () => {
 
   const nameToCategorie = {
     'Recup Verre': 'Verre',
-    Decheterie: 'dechetterie',
-    'Borne Textile': 'vetements',
+    Decheterie: 'Decheterie',
+    'Collecte vetements': 'Vetements',
     Compost: 'Compost',
   };
 
@@ -69,7 +71,7 @@ export const Formulaire = () => {
     const source = axios.CancelToken.source();
 
     axios
-      .post('http://localhost:5000/point', {
+      .post(`${process.env.REACT_APP_API_URL_POINT}`, {
         nom: nomForm,
         categorie: nameToCategorie[nomForm],
         voie: voieForm,
@@ -79,14 +81,11 @@ export const Formulaire = () => {
         lon: longForm,
         info: infoForm || '-',
       })
+      .then(() => setTimeout(abortForm, 1700))
       .catch((err) => {
         console.error(err.response.data);
-      })
-      .finally(setNomForm(' '), setVoieForm('')),
-      setCodePostalForm(''),
-      setLatForm(''),
-      setLongForm(''),
-      setInfoForm('');
+      });
+   
 
     return () => {
       source.cancel('Component got unmounted');
@@ -94,89 +93,92 @@ export const Formulaire = () => {
   };
 
   return (
-    <div>
-      <form className={styles.formContainer} onSubmit={handleSubmit}>
-        <h1 className={styles.h1Form}>ajout d&apos;une borne</h1>
+    <div className={styles.popup_inn}>
+      <div className={styles.popup}>
+        <form className={styles.formContainer} onSubmit={handleSubmit}>
+          <img src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' className={styles.abort} onClick={abortForm} />
+          <h1 className={styles.h1Form}>ajout d&apos;une borne</h1>
 
-        <select
-          id="namePoint"
-          value={nomForm}
-          onChange={(e) => setNomForm(e.target.value)}
-          className={styles.selectOption}
-          required
-        >
-          <option value="" disabled>
-            nom du point
-          </option>
-          <option value={'Recup Verre'}>Recup Verre</option>
-          <option value={'Decheterie'}>Decheterie</option>
-          <option value={'Borne Textile'}>Borne Textile</option>
-          <option value={'Compost'}>Compost</option>
-        </select>
+          <select
+            id="namePoint"
+            value={nomForm}
+            onChange={(e) => setNomForm(e.target.value)}
+            className={styles.selectOption}
+            required
+          >
+            <option value="" disabled>
+              nom du point
+            </option>
+            <option value={'Recup Verre'}>Recup Verre</option>
+            <option value={'Decheterie'}>Décheterie</option>
+            <option value={'Collecte vetements'}>Collecte vêtements</option>
+            <option value={'Compost'}>Compost</option>
+          </select>
 
-        <input
-          type="text"
-          name="rue"
-          id="ruePoint"
-          placeholder="adresse du point"
-          autoComplete="off"
-          className={styles.inputOption}
-          value={voieForm}
-          onChange={(e) => setVoieForm(e.target.value)}
-          required
-        />
+          <input
+            type="text"
+            name="rue"
+            id="ruePoint"
+            placeholder="adresse du point"
+            autoComplete="off"
+            className={styles.inputOption}
+            value={voieForm}
+            onChange={(e) => setVoieForm(e.target.value)}
+            required
+          />
 
-        <input
-          type="text"
-          name="lat"
-          id="codePoint"
-          placeholder="code postal du point"
-          autoComplete="off"
-          className={styles.inputOption}
-          value={codePostalForm}
-          onChange={(e) => setCodePostalForm(e.target.value)}
-          required
-        />
+          <input
+            type="text"
+            name="lat"
+            id="codePoint"
+            placeholder="code postal du point"
+            autoComplete="off"
+            className={styles.inputOption}
+            value={codePostalForm}
+            onChange={(e) => setCodePostalForm(e.target.value)}
+            required
+          />
 
-        <input
-          type="text"
-          name="lat"
-          id="latPoint"
-          placeholder="latitude du point"
-          autoComplete="off"
-          className={styles.inputOption}
-          value={latForm}
-          onChange={(e) => setLatForm(e.target.value)}
-          required
-        />
+          <input
+            type="text"
+            name="lat"
+            id="latPoint"
+            placeholder="latitude du point"
+            autoComplete="off"
+            className={styles.inputOption}
+            value={latForm}
+            onChange={(e) => setLatForm(e.target.value)}
+            required
+          />
 
-        <input
-          type="text"
-          name="lat"
-          id="longPoint"
-          placeholder="longitude du point"
-          autoComplete="off"
-          className={styles.inputOption}
-          value={longForm}
-          onChange={(e) => setLongForm(e.target.value)}
-          required
-        />
+          <input
+            type="text"
+            name="lat"
+            id="longPoint"
+            placeholder="longitude du point"
+            autoComplete="off"
+            className={styles.inputOption}
+            value={longForm}
+            onChange={(e) => setLongForm(e.target.value)}
+            required
+          />
 
-        <textarea
-          name="lat"
-          id="infoPoint"
-          placeholder="info sur le point"
-          autoComplete="off"
-          className={styles.inputOption}
-          value={infoForm}
-          onChange={(e) => setInfoForm(e.target.value)}
-        />
+          <textarea
+            name="lat"
+            id="infoPoint"
+            placeholder="info sur le point"
+            autoComplete="off"
+            className={styles.inputOption}
+            value={infoForm}
+            onChange={(e) => setInfoForm(e.target.value)}
+          />
 
-        <button type="submit" className={styles.button} onClick={notify}>
-          ENVOYER
-        </button>
-        <ToastContainer />
-      </form>
+          <button type="submit" className={styles.button} onClick={notify}>
+            ENVOYER
+          </button>
+          <ToastContainer />
+        </form>
+      </div>
     </div>
   );
 };

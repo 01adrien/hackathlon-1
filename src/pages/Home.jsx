@@ -35,7 +35,7 @@ export const Home = () => {
         >
           <option value="">Choix</option>
           <option value="verre">Verre</option>
-          <option value="dechetterie">Décheterie</option>
+          <option value="decheterie">Décheterie</option>
           <option value="vetements">Vêtements</option>
           <option value="compost">Compost</option>
         </select>

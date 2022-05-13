@@ -7,15 +7,16 @@ import { GiBrokenBottle } from 'react-icons/gi';
 import { Formulaire } from './Formulaire';
 
 export const Selection = () => {
+  const [displayForm, setDisplayForm] = useState(false);
+  const [selected, setSelected] = useState(false)
   const navigate = useNavigate();
 
-  const selection = (route) => {
+  const selectionButton = (route) => {
+    setSelected(route)
     navigate(`/result/${route}`, {
       replace: true,
     });
   };
-
-  const [displayForm, setDisplayForm] = useState(false);
 
   const handleForm = () => {
     setDisplayForm(!displayForm)
@@ -24,49 +25,51 @@ export const Selection = () => {
   return (
     <>
       <div className={styles.container}>
-        <section className={styles.verreContainer}>
+        <section className={selected === 'verre' ? styles.verreContainer2 : styles.verreContainer}>
           <button className={styles.verreBackground}>
             <GiBrokenBottle
-              onClick={() => selection('verre')}
+              onClick={() => selectionButton('verre')}
               className={styles.button}
             />
           </button>
           VERRE
         </section>
 
-        <section className={styles.decheterieContainer}>
+        <section className={selected === 'decheterie' ? styles.verreContainer2 : styles.verreContainer}>
           <button className={styles.decheterieBackground}>
             <FaTrash
-              onClick={() => selection('dechetterie')}
+              onClick={() => selectionButton('decheterie')}
               className={styles.button}
             />
           </button>
           DECHETERIE
         </section>
 
-        <section className={styles.vetementContainer}>
+        <section className={selected === 'vetements' ? styles.verreContainer2 : styles.verreContainer}>
           <button className={styles.vetementBackground}>
             <FaTshirt
-              onClick={() => selection('vetements')}
+              onClick={() => selectionButton('vetements')}
               className={styles.button}
             />
           </button>
           VETEMENT
         </section>
 
-        <section className={styles.compostContainer}>
+        <section className={selected === 'compost' ? styles.verreContainer2 : styles.verreContainer}>
           <button className={styles.compostBackground}>
             <RiPlantFill
-              onClick={() => selection('compost')}
+              onClick={() => selectionButton('compost')}
               className={styles.button}
             />
           </button>
+          <p>
           COMPOST
+          </p>
         </section>
       </div>
 
       <div className={styles.pointContainer} onClick={handleForm}>AJOUTER MON POINT</div>
-      {displayForm ? <Formulaire/> : ''}
+      {displayForm ? <Formulaire abortForm={() =>setDisplayForm(!displayForm)}/> : ''}
     </>
   );
 };
