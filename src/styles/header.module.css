@@ -37,7 +37,7 @@
   transition-duration: 0.3s;
 }
 
-.button {
+.burger {
   background-color: white;
   border: white;
 }
@@ -62,13 +62,12 @@
   display: block;
   position: absolute;
   list-style: none;
-  padding: 25px 20px;
+  padding: 21px 0px;
   width: 100%;
   margin: 160px 20px 5px 0px;
   background-color: white;
   z-index: 3000;
   text-align: center;
-  animation: fade-in 0.5s;
 }
 
 .navMenu li {
@@ -78,10 +77,6 @@
   font-weight: 900;
   font-size: 1.3em;
   margin: 10px;
-}
-
-li:hover {
-  color: #d8d8eb;
 }
 
 @keyframes fade-in {
@@ -94,9 +89,14 @@ li:hover {
 }
 
 @media screen and (min-width: 700px) {
-  .button {
+  .burger {
     display: none;
   }
+
+  /* .navMenu ul {
+    display: none;
+  } */
+
   .nav {
     display: flex;
     justify-content: space-between;
@@ -115,6 +115,7 @@ li:hover {
     justify-content: center;
     align-items: center;
     list-style: none;
+    margin: 2px 2px;
   }
 
   .navMenuMobile li {
