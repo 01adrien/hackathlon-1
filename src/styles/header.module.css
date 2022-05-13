@@ -33,9 +33,13 @@
   transition-duration: 0.3s;
 }
 
+.button {
+  background-color: white;
+  border: white;
+}
 .logoburger {
-  height: 2em;
-  width: 2em;
+  height: 2.8em;
+  width: 2.8em;
   color: #24a45c;
   margin: 10px 15px;
 }
@@ -45,6 +49,7 @@
   display: flex;
   align-items: center;
   background-color: white;
+  border-radius: 15px;
   margin-top: 60px;
   width: 90%;
 }
@@ -53,10 +58,9 @@
   display: block;
   position: absolute;
   list-style: none;
-  padding: 30px;
-  padding-right: 9px;
+  padding: 25px 20px;
   width: 100%;
-  margin: 160px 20px 5px 0;
+  margin: 160px 20px 5px 0px;
   background-color: white;
   z-index: 1000;
   text-align: center;
@@ -64,33 +68,55 @@
 
 .navMenu li {
   color: #1c2d54;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Verdana, sans-serif;
   font-weight: 900;
-  font-size: 1.5em;
+  font-size: 1.3em;
+  margin: 10px;
 }
 
 @media screen and (min-width: 700px) {
-  .logoburger {
+  .button {
     display: none;
   }
   .nav {
     display: flex;
     justify-content: space-between;
     background-color: white;
+    justify-content: flex-end;
   }
-  .navMenu ul {
+  /* .navMenu ul {
     display: flex;
     flex-direction: row;
   }
   .navMenu li {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    text-align: right;
     margin: 10px;
     color: black;
+  } */
+
+  .navMenuMobile {
+    text-align: right;
+    display: flex;
   }
 
+  .navMenuMobile ul {
+    display: flex;
+    align-items: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+  }
+
+  .navMenuMobile li {
+    color: #1c2d54;
+    font-weight: 900;
+    font-size: 1.1em;
+    width: 150px;
+    margin: 10px;
+  }
   .route {
-    text-decoration: none;
     margin-top: 20px;
     font-size: 1.2em;
     font-weight: bolder;
