@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
@@ -28,7 +29,7 @@ export default function MapComponent({ markersRef }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/category-point/${params.category}`)
+      .get(`${process.env.REACT_APP_API_URL_POINT_CATEGORY}/${params.category}`)
       .then((result) => result.data)
       .then((data) => {
         setResult(data);
