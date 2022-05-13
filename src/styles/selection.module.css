@@ -94,6 +94,13 @@
   text-align: center;
   margin-top: 30px;
   margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.pointContainer:hover {
+  transition: all 1s;
+  color: black;
+  background-color: green;
 }
 
 @media screen and (min-width: 700px) {
@@ -118,3 +125,4 @@
     margin: 5% auto;
   }
 }
+
