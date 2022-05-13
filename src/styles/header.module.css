@@ -93,9 +93,9 @@
     display: none;
   }
 
-  /* .navMenu ul {
+  .navMenu {
     display: none;
-  } */
+  }
 
   .nav {
     display: flex;
