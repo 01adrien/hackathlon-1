@@ -20,6 +20,10 @@
 }
 
 .lieuDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 230px;
   height: 115px;
   margin-top: -20px;
