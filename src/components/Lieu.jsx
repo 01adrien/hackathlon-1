@@ -8,9 +8,10 @@ import { FaTrash, FaTshirt } from 'react-icons/fa';
 import { RiPlantFill } from 'react-icons/ri';
 import { GiBrokenBottle } from 'react-icons/gi';
 
-export const Lieu = ({ categorie, voie, code_postal, commune, markersRef, id}) => {
+export const Lieu = ({ categorie, voie, code_postal, commune, markersRef, id, nom}) => {
+  console.log(categorie)
   let image = null;
-  if (categorie === 'Recup Verre') {
+  if (nom === 'Recup Verre') {
     image = <section className={iconStyle.verreContainer}>
               <button className={iconStyle.verreBackground}>
                 <GiBrokenBottle
@@ -57,7 +58,7 @@ export const Lieu = ({ categorie, voie, code_postal, commune, markersRef, id}) =
   return (
     <>
     <div className={style.lieu} key={voie} onClick={() => markersRef.current[id].fire('click') && scrollToTop()}>
-      {image}
+      <div className={style.lieuImage}>{image}</div>
       <div className={style.lieuDescription}>
         <h1 className={style.titre}>{categorie}</h1>
         <p className={style.lieuText}>{voie}</p>
