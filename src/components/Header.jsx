@@ -18,7 +18,11 @@ export const Header = () => {
         <Link to="/" className={styles.logohome}>
           <img src={jetree} className={styles.logotree} alt="my-logo" />
         </Link>
-        <button type="button" onClick={handleShowMenu}>
+        <button
+          type="button"
+          className={styles.burger}
+          onClick={handleShowMenu}
+        >
           <GiHamburgerMenu className={styles.logoburger} alt="logoBurger" />
         </button>
       </div>

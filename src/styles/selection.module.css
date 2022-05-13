@@ -20,7 +20,10 @@
 }
 
 .verreContainer2 {
-  color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #24a45c;
   text-align: center;
   font-weight: bold;
 }

@@ -60,12 +60,13 @@
   text-align: center;
   border-radius: 5px;
   background-color: var(--color2);
+  margin-bottom: 300px;
+  filter: drop-shadow(0 0 0.75rem black);
   animation: fade-in 1.5s;
 }
 
 .popup-hide {
   display: none;
-  
 }
 
 .popup-button {
