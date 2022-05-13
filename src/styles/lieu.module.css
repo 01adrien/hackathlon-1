@@ -37,3 +37,27 @@
   width: auto;
   margin-right: 30px;
 }
+
+@media screen and (min-width: 700px) {
+  .lieu {
+    width: 50%;
+    height: auto;
+  }
+
+  .lieuDescription {
+    width: 500px;
+    font-size: 1.5rem;
+    height: 200px;
+  }
+
+  .lieuImage {
+    display: flex;
+    align-items: center;
+  }
+
+  .titre {
+    font-size: 2rem;
+    padding-top: 10px;
+  }
+
+}
