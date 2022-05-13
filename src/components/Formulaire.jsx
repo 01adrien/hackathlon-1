@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useState } from 'react';
 import styles from '../styles/formulaire.module.css';
 import axios from 'axios';
@@ -69,7 +70,7 @@ export const Formulaire = () => {
     const source = axios.CancelToken.source();
 
     axios
-      .post('http://localhost:4000/point', {
+      .post(`${process.env.REACT_APP_API_URL_POINT}`, {
         nom: nomForm,
         categorie: nameToCategorie[nomForm],
         voie: voieForm,

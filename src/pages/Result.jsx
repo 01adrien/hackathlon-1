@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import MapComponent from '../components/MapComponent';
 import { Selection } from '../components/Selection';
 import React, { useEffect, useRef, useState } from 'react';
@@ -14,7 +15,7 @@ export const Result = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/category-point/${params.category}`)
+      .get(`${process.env.REACT_APP_API_URL_POINT_CATEGORY}/${params.category}`)
       .then((result) => result.data)
       .then((data) => {
         setResult(data);

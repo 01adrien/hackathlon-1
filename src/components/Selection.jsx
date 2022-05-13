@@ -9,9 +9,6 @@ import { Formulaire } from './Formulaire';
 export const Selection = () => {
   const [displayForm, setDisplayForm] = useState(false);
   const [selected, setSelected] = useState(false)
-  // const [selectedDecheterie, setSelectedDecheterie] = useState(null)
-  // const [selectedTextile, setSelectedTextile] = useState(null)
-  // const [selectedCompost, setSelectedCompost] = useState(null)
   const navigate = useNavigate();
 
   const selectionButton = (route) => {
@@ -20,28 +17,6 @@ export const Selection = () => {
       replace: true,
     });
   };
-
-  // const selectionDecheterie = (route) => {
-  //   setSelectedDecheterie(!selectedDecheterie)
-  //   navigate(`/result/${route}`, {
-  //     replace: true,
-  //   });
-  // };
-
-  // const selectionTextile = (route) => {
-  //   setSelectedTextile(!selectedTextile)
-  //   navigate(`/result/${route}`, {
-  //     replace: true,
-  //   });
-  // };
-
-  // const selectionCompost = (route) => {
-  //   setSelectedCompost(!selectedCompost)
-  //   navigate(`/result/${route}`, {
-  //     replace: true,
-  //   });
-  // };
-
 
 
   const handleForm = () => {
