@@ -1,6 +1,5 @@
 .leaflet-container {
   width: 100%;
-  max-width: 1024px;
   min-height: 50vh;
   margin: 15px auto;
 }
@@ -22,4 +21,12 @@
 
 .data-popup {
   color: green;
+}
+
+@media screen and (min-width: 700px) {
+  .leaflet-container {
+    margin: 1% 0;
+    overflow: hidden;
+    margin-bottom: 3%;
+  }
 }
