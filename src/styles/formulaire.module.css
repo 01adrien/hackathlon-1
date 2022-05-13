@@ -26,6 +26,7 @@
   border-radius: 10px;
   padding: 10px;
   margin: 10px 0px;
+  cursor: pointer;
 }
 
 /* INPUT */
@@ -41,10 +42,17 @@
 
 /* BOUTON */
 .button {
-  background: #b6e5cc;
+  background: #81caa3;
   border-radius: 10px;
   padding: 10px 20px;
   margin-top: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.button:hover {
+  background-color: rgb(35, 164, 92);
+  transform: translateX(1px);
 }
 
 .popup {
@@ -83,4 +91,24 @@
   to {
     height: 100%;
   }
+}
+
+@media screen and (min-width: 700px) {
+  .selectOption {
+    width: 83.5%;
+    font-size: 1.2rem;
+  }
+
+  .formContainer {
+    width: 50%;
+  }
+
+  .inputOption {
+    font-size: 1.2rem;
+  }
+
+  .button {
+    font-size: 1.2rem;
+  }
+
 }

@@ -124,5 +124,9 @@
     width: 40%;
     margin: 5% auto;
   }
+
+  .button {
+    font-size: 6rem;
+  }
 }
 

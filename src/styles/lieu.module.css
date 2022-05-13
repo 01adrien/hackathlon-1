@@ -48,11 +48,13 @@
     width: 500px;
     font-size: 1.5rem;
     height: 200px;
+    margin-right: 40px;
   }
 
   .lieuImage {
     display: flex;
     align-items: center;
+    margin-left: 40px;
   }
 
   .titre {
