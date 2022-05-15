@@ -2,51 +2,31 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import style from "../styles/lieu.module.css";
-import iconStyle from '../styles/selection.module.css'
-import logo from "../assets/jetree.png"
+import '../styles/icon.css'
 import { FaTrash, FaTshirt } from 'react-icons/fa';
 import { RiPlantFill } from 'react-icons/ri';
 import { GiBrokenBottle } from 'react-icons/gi';
 
 export const Lieu = ({ categorie, voie, code_postal, commune, markersRef, id, nom}) => {
   let image = null;
-  if (categorie === 'Verre') {
-    image = <section className={iconStyle.verreContainer}>
-              <button className={iconStyle.verreBackground}>
-                <GiBrokenBottle
-                  className={iconStyle.button}
-                />
-              </button>
-            </section>
-  }
-  if (categorie === 'Compost') {
-    image = <section className={iconStyle.decheterieContainer}>
-              <button className={iconStyle.decheterieBackground}>
-                <RiPlantFill
-                  className={iconStyle.button}
-                />
-              </button>
-            </section>
-  }
-  if (categorie === 'Vetements') {
-    image = <section className={iconStyle.vetementContainer}>
-              <button className={iconStyle.vetementBackground}>
-                <FaTshirt
-                  className={iconStyle.button}
-                />
-              </button>
-            </section>
-  }
-  if (categorie === 'Decheterie') {
-    image = <section className={iconStyle.compostContainer}>
-              <button className={iconStyle.compostBackground}>
-                <FaTrash
-                  className={iconStyle.button}
-                />
-              </button>
-            </section>
-  }
+  <FaTrash />
 
+  const cat = ['Verre', 'Compost', 'Vetements', 'Decheterie']
+  const icon = [ <GiBrokenBottle key={1} className='button'/>, <RiPlantFill key={2} className='button'/>, 
+                <FaTshirt key={3} className='button'/>, <FaTrash key={4} className='button'/> ]
+  const cssClass = [['verreContainer', 'verreBackground'], ['decheterieContainer', 'decheterieBackground'], 
+                    ['vetementContainer', 'vetementBackground'], ['compostContainer','compostBackground']]
+
+  for (let i = 0; i < cat.length; i++) {
+    if (categorie === cat[i]) {
+      image = <section className={cssClass[i][0]}>
+                <button className={cssClass[i][1]}>
+                  {icon[i]}
+                </button>
+              </section>
+    }
+  }
+  
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

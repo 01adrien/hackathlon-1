@@ -18,10 +18,8 @@ export const Formulaire = ({ abortForm }) => {
     if (
       nomForm === '' ||
       voieForm === '' ||
-      codePostalForm === '' ||
-      latForm === '' ||
-      longForm === ''
-    ) {
+      codePostalForm === '') 
+      {
       toast.error(
         'Tu dois renseigner tous les champs avant de soumettre un point',
         {
@@ -68,8 +66,18 @@ export const Formulaire = ({ abortForm }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const source = axios.CancelToken.source();
+    const streetName = voieForm.replace(' ', '+');
+    console.log(streetName);
+    axios.get(`https://api.geoapify.com/v1/geocode/search?street=${streetName}&postcode=${codePostalForm}&city=Lyon&country=UFrance&lang=fr&limit=1&format=json&apiKey=a23ee2795c824b908646326fa3e7348a`)
+          .then((result) => result.data)
+          .then ((data) => {
+            setLatForm(data.results[0].lat);
+            setLongForm(data.results[0].lon)
+            console.log(data.results[0].lat)
+          })
 
+    const source = axios.CancelToken.source();
+    console.log(latForm, longForm)
     axios
       .post(`${process.env.REACT_APP_API_URL_POINT}`, {
         nom: nomForm,
@@ -77,8 +85,8 @@ export const Formulaire = ({ abortForm }) => {
         voie: voieForm,
         code_postal: codePostalForm,
         commune: codePostalToArrondissement[codePostalForm],
-        lat: latForm,
-        lon: longForm,
+        lat: latForm.toString(),
+        lon: longForm.toString(),
         info: infoForm || '-',
       })
       .catch((err) => {
@@ -139,30 +147,6 @@ export const Formulaire = ({ abortForm }) => {
             className={styles.inputOption}
             value={codePostalForm}
             onChange={(e) => setCodePostalForm(e.target.value)}
-            required
-          />
-
-          <input
-            type="text"
-            name="lat"
-            id="latPoint"
-            placeholder="latitude du point"
-            autoComplete="off"
-            className={styles.inputOption}
-            value={latForm}
-            onChange={(e) => setLatForm(e.target.value)}
-            required
-          />
-
-          <input
-            type="text"
-            name="lat"
-            id="longPoint"
-            placeholder="longitude du point"
-            autoComplete="off"
-            className={styles.inputOption}
-            value={longForm}
-            onChange={(e) => setLongForm(e.target.value)}
             required
           />
 
