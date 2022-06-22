@@ -14,10 +14,10 @@ export const Home = () => {
   const [show, setShow] = useState(true);
 
   function handleClick() {
-    setShow(!show);
+    setShow(show);
   }
   return (
-    <div className="home">
+    <div class="home">
       <div className={show ? 'popup' : 'popup-hide'}>
         <p className="popup-text">
           Bienvenue sur JeTree, l’appli qui t’aide à repérer la borne de

@@ -85,7 +85,6 @@ export const Formulaire = ({ abortForm }) => {
       .catch((err) => {
         console.error(err.response.data);
       });
-   
 
     return () => {
       source.cancel('Component got unmounted');
@@ -96,7 +95,10 @@ export const Formulaire = ({ abortForm }) => {
     <div className={styles.popup_inn}>
       <div className={styles.popup}>
         <form className={styles.formContainer} onSubmit={handleSubmit}>
-          <img src='https://cdn-icons-png.flaticon.com/512/1828/1828843.png' className={styles.abort} onClick={abortForm} />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png"
+            className={styles.abort}
+          />
           <h1 className={styles.h1Form}>ajout d&apos;une borne</h1>
 
           <select
@@ -123,7 +125,7 @@ export const Formulaire = ({ abortForm }) => {
             autoComplete="off"
             className={styles.inputOption}
             value={voieForm}
-            onChange={(e) => setVoieForm(e.target.value)}
+            onChange={() => setVoieForm(e.target.value)}
             required
           />
 
@@ -173,7 +175,11 @@ export const Formulaire = ({ abortForm }) => {
             onChange={(e) => setInfoForm(e.target.value)}
           />
 
-          <button type="submit" className={styles.button} onClick={notify}>
+          <button
+            type="submit"
+            className={styles.button}
+            onClick={() => alert('CA MARCHE PAS !!')}
+          >
             ENVOYER
           </button>
           <ToastContainer />

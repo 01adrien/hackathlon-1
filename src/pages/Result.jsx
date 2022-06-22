@@ -16,17 +16,21 @@ export const Result = () => {
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL_POINT_CATEGORY}/${params.category}`)
-      .then((result) => result.data)
+      .then((result) => data)
       .then((data) => {
         setResult(data);
       })
       .catch(() => {
         alert('No search results');
-      })
+      });
   }, [params]);
 
   return (
     <div className="result">
+      <img
+        src="https://www.francetvinfo.fr/pictures/si9iFOPV1UO8tFtNS10SPe3-MQM/1500x843/2016/08/23/internet-troll.jpg"
+        alt="troll"
+      />
       <MapComponent markersRef={markersRef} />
       <Selection />
       {result.map((point) => (

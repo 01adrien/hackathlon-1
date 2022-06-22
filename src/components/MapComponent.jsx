@@ -13,7 +13,7 @@ export default function MapComponent({ markersRef }) {
   const params = useParams();
   const lyonPosition = [45.764043, 4.835659];
 
-  const [result, setResult] = useState([]);
+  const [result, setResult] = useState('');
 
   var LeafIcon = L.Icon.extend({
     options: {
